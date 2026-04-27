@@ -1,0 +1,612 @@
+.landing-page {
+    padding: clamp(16px, 3vh, 32px) 32px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.landing-shell {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+    padding: clamp(32px, 5vh, 48px) 48px;
+    border-radius: clamp(24px, 3vh, 36px);
+    background: rgba(24, 24, 27, 0.6);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid var(--border);
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.brand-mark {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-size: 1.4rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.6);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.brand-copy h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2px;
+}
+
+.brand-copy p {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.hero-brand {
+    margin-bottom: 20px;
+}
+
+.entry-zone {
+    width: min(500px, 100%);
+    display: grid;
+    gap: 16px;
+    align-content: start;
+}
+
+.entry-switch {
+    display: flex;
+    position: relative;
+    padding: 8px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.entry-switch::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left: 8px;
+    width: calc(50% - 8px);
+    background: linear-gradient(135deg, var(--surface-strong), var(--surface));
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.entry-switch.company-active::before {
+    transform: translateX(100%);
+}
+
+.entry-tab {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    min-height: 44px;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.entry-tab:hover {
+    color: var(--text);
+}
+
+.entry-tab.active {
+    color: var(--primary);
+}
+
+.entry-panels {
+    position: relative;
+    min-height: 220px;
+}
+
+.entry-panel {
+    position: relative;
+    padding: 28px 32px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    box-shadow: 0 24px 40px rgba(0, 0, 0, 0.4);
+    transition: border-color 0.3s ease;
+}
+
+.entry-panel:hover {
+    border-color: var(--border-hover);
+}
+
+.entry-panel h3 {
+    font-size: 1.6rem;
+    margin: 16px 0 10px;
+}
+
+.entry-panel p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.entry-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.landing-hero {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(24px, 5vh, 40px);
+    align-items: center;
+}
+
+.right-rail {
+    display: grid;
+    gap: 24px;
+    align-content: start;
+}
+
+.hero-copy,
+.hero-panel {
+    padding: 36px;
+    border-radius: 32px;
+}
+
+.hero-copy {
+    padding-top: 12px;
+}
+
+.hero-copy h1 {
+    font-size: clamp(2.2rem, 4.5vh, 3.2rem);
+    line-height: 1.05;
+    margin: clamp(16px, 2.5vh, 24px) 0;
+    background: linear-gradient(to right, #ffffff, #a1a1aa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-copy p {
+    max-width: 680px;
+    color: var(--muted);
+    font-size: clamp(1rem, 2vh, 1.15rem);
+    line-height: 1.6;
+}
+
+.story-card-slider {
+    margin-top: clamp(16px, 3vh, 32px);
+    position: relative;
+    display: grid;
+    overflow: visible;
+}
+
+.story-card-slider .story-slide {
+    grid-area: 1 / 1;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.story-card-slider .story-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.story-card {
+    padding: clamp(20px, 3.5vh, 32px);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+    height: 100%;
+}
+
+.story-card strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    font-family: 'Outfit', sans-serif;
+    color: var(--primary);
+}
+
+.story-card span {
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.story-desc {
+    margin-top: clamp(10px, 2vh, 16px);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: clamp(0.9rem, 1.6vh, 1rem);
+    line-height: 1.45;
+}
+
+.story-slider-controls {
+    margin-top: auto;
+    padding-top: clamp(12px, 2vh, 20px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.story-arrows {
+    display: flex;
+    gap: 8px;
+}
+
+.story-arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(235, 243, 255, 0.96);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.story-arrow:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.story-dots {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.story-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    border: none;
+    background: rgba(255, 255, 255, 0.34);
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.story-dot.active {
+    width: 32px;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.hero-panel {
+    background: linear-gradient(145deg, rgba(39, 39, 42, 0.6), rgba(24, 24, 27, 0.8));
+    border: 1px solid var(--border);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.landing-stage {
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.landing-stage.is-switching {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+}
+
+.hero-panel::after {
+    content: "";
+    position: absolute;
+    inset: auto -80px -80px auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-panel::before {
+    content: "";
+    position: absolute;
+    inset: -60px auto auto -60px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-panel h2 {
+    font-size: 1.8rem;
+    margin: 20px 0 12px;
+    line-height: 1.2;
+}
+
+.hero-panel p {
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.role-grid {
+    display: grid;
+    gap: 16px;
+    margin-top: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.role-card {
+    display: grid;
+    gap: 8px;
+    padding: 24px;
+    border-radius: 20px;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.role-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(59,130,246,0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.role-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.role-card:hover::before {
+    opacity: 1;
+}
+
+.role-card strong {
+    font-size: 1.1rem;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text);
+    position: relative;
+}
+
+.role-card span {
+    color: var(--muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    position: relative;
+}
+
+.feature-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+}
+
+@media (max-width: 1150px) {
+    .landing-hero,
+    .feature-strip,
+    .hero-metrics {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .landing-page {
+        padding: 16px;
+    }
+
+    .landing-shell {
+        padding: 24px;
+        border-radius: 28px;
+    }
+
+    .entry-zone {
+        width: 100%;
+    }
+    
+    .hero-copy h1 {
+        font-size: 2.2rem;
+    }
+}
+
+body.theme-light .landing-shell {
+    background: rgba(255, 255, 255, 0.88);
+    border-color: rgba(15, 23, 42, 0.14);
+    box-shadow: 0 16px 44px rgba(15, 23, 42, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+body.theme-light .brand-copy p {
+    color: #475569;
+}
+
+body.theme-light .entry-switch {
+    background: rgba(15, 23, 42, 0.06);
+    border-color: rgba(15, 23, 42, 0.14);
+    box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.08);
+}
+
+body.theme-light .entry-switch::before {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(241, 245, 249, 0.98));
+    border-color: rgba(15, 23, 42, 0.12);
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
+}
+
+body.theme-light .entry-tab {
+    color: #64748b;
+}
+
+body.theme-light .entry-tab:hover {
+    color: #1e293b;
+}
+
+body.theme-light .entry-tab.active {
+    color: #2563eb;
+}
+
+body.theme-light .entry-panel {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(15, 23, 42, 0.12);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+}
+
+body.theme-light .entry-panel p {
+    color: #475569;
+}
+
+body.theme-light .hero-copy h1 {
+    background: linear-gradient(to right, #0f172a, #334155);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.theme-light .hero-copy p {
+    color: #334155;
+}
+
+
+
+body.theme-light .hero-panel {
+    background: linear-gradient(145deg, rgba(239, 246, 255, 0.95), rgba(219, 234, 254, 0.92));
+    border-color: rgba(15, 23, 42, 0.12);
+    color: #0f172a;
+}
+
+body.theme-light .hero-panel h2,
+body.theme-light .role-card strong {
+    color: #0f172a;
+}
+
+body.theme-light .hero-panel p,
+body.theme-light .role-card span {
+    color: #334155;
+}
+
+body.theme-light .role-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(15, 23, 42, 0.12);
+}
+
+body.theme-light .role-card:hover {
+    border-color: rgba(37, 99, 235, 0.5);
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+}
+
+body.theme-light .role-card::before {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(14, 165, 233, 0.06));
+}
+
+body.theme-light .story-card {
+    background: rgba(255, 255, 255, 0.86);
+    border-color: rgba(15, 23, 42, 0.12);
+}
+
+body.theme-light .story-card span {
+    color: #475569;
+}
+
+body.theme-light .story-dot {
+    background: rgba(15, 23, 42, 0.2);
+}
+
+body.theme-light .story-dot.active {
+    background: rgba(15, 23, 42, 0.8);
+}
+
+body.theme-light .story-desc {
+    color: #64748b;
+}
+
+body.theme-light .story-arrow {
+    border-color: rgba(15, 23, 42, 0.12);
+    background: rgba(15, 23, 42, 0.04);
+    color: #0f172a;
+}
+
+body.theme-light .story-arrow:hover {
+    background: rgba(15, 23, 42, 0.08);
+}
+
+/* Responsive Overrides */
+@media (max-width: 900px) {
+    .landing-hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .landing-page {
+        padding: clamp(12px, 2vh, 24px) 16px;
+        height: auto;
+    }
+    
+    .landing-shell {
+        padding: 32px 24px;
+        border-radius: 28px;
+    }
+
+    .hero-copy, .hero-panel {
+        padding: 16px 20px;
+    }
+    
+    .entry-zone {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-hero {
+        gap: 32px;
+    }
+    
+    .brand {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    
+    .brand-mark {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+        border-radius: 12px;
+    }
+    
+    .landing-page {
+        padding: 12px;
+    }
+    
+    .landing-shell {
+        padding: 24px 16px;
+        border-radius: 20px;
+    }
+
+    .story-card {
+        padding: 20px 16px;
+    }
+}

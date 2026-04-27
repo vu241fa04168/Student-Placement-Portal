@@ -1,0 +1,23 @@
+{
+  "name": "fp-1",
+  "version": "1.0.0",
+  "description": "Placement management system using Express and MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"Set-Location -LiteralPath $env:INIT_CWD; node .\\server.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.2.4"
+  }
+}

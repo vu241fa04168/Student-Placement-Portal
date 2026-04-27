@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Company Profile</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body class="workspace-page">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand-copy">
+          <span class="tag">Company</span>
+          <h2>Edit Company Profile</h2>
+          <p>Update your company name and recovery email without affecting jobs you already posted.</p>
+        </div>
+
+        <div class="nav-group">
+          <a href="company.html" class="nav-link">Back to Dashboard</a>
+          <button onclick="populateCompanyEditForm()">Reload Current Data</button>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </aside>
+
+      <main class="content-shell glass-panel">
+        <section class="workspace-header">
+          <div>
+            <span class="tag">Company profile editor</span>
+            <h1>Update your company details</h1>
+            <p>This page edits the recruiter profile only. Job-specific changes belong in the job editor.</p>
+          </div>
+          <div class="workspace-actions">
+            <a href="company.html" class="btn btn-secondary">Return to Dashboard</a>
+            <a href="company-job.html" class="btn btn-primary">Create New Job</a>
+          </div>
+        </section>
+
+        <form id="companyEditForm" class="page-form">
+          <section class="form-section">
+            <h3>Company information</h3>
+            <div class="field-group">
+              <label for="editCompanyName">Company Name</label>
+              <input type="text" id="editCompanyName" required />
+            </div>
+            <div class="field-group">
+              <label for="editCompanyEmail">Recovery Email</label>
+              <input type="email" id="editCompanyEmail" required />
+            </div>
+            <p class="info-line" style="margin-top: 12px;">
+              Need to edit eligibility, location, or skills for a role? Open that job from the dashboard and use the dedicated job editor.
+            </p>
+          </section>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save Company Profile</button>
+            <a href="company.html" class="btn btn-secondary">Cancel</a>
+          </div>
+          <p id="error"></p>
+        </form>
+      </main>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

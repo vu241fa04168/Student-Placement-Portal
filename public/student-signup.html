@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Signup</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body class="auth-page login-fit-page signup-fit-page student-login-page">
+    <div class="page-shell auth-shell">
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to night theme" aria-pressed="false">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 1 0 9.8 9.8Z"></path>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+        </svg>
+      </button>
+
+      <section class="auth-story">
+        <div class="auth-story-slider" data-story-slider>
+          <div class="role-toggle" role="tablist" aria-label="Signup role switch">
+            <a href="student-signup.html" class="role-toggle-btn active" aria-selected="true">Student</a>
+            <a href="company-signup.html" class="role-toggle-btn" aria-selected="false">Company</a>
+          </div>
+
+          <span class="tag">Student onboarding</span>
+          <h1>Create a student profile that actually reflects placement readiness.</h1>
+          <p>
+            Build a complete academic and skills profile so eligible companies can be
+            matched against your real details.
+          </p>
+
+          <div class="story-card-slider">
+            <article class="story-slide active">
+              <div class="story-card">
+                <strong>Academic depth</strong>
+                <span>Capture branch, current year, CGPA, current and past backlog history.</span>
+              </div>
+            </article>
+            <article class="story-slide">
+              <div class="story-card">
+                <strong>Skill visibility</strong>
+                <span>Add programming languages and contact details to improve matching quality.</span>
+              </div>
+            </article>
+            <article class="story-slide">
+              <div class="story-card">
+                <strong>Smarter filtering</strong>
+                <span>Your profile directly powers the companies and jobs shown in dashboard filters.</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="story-slider-controls">
+            <div class="story-arrows">
+              <button type="button" class="story-arrow" data-story-prev aria-label="Previous slide">←</button>
+              <button type="button" class="story-arrow" data-story-next aria-label="Next slide">→</button>
+            </div>
+            <div class="story-dots">
+              <button type="button" class="story-dot active" data-slide-index="0" aria-label="Slide 1"></button>
+              <button type="button" class="story-dot" data-slide-index="1" aria-label="Slide 2"></button>
+              <button type="button" class="story-dot" data-slide-index="2" aria-label="Slide 3"></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="login-container">
+        <div class="login-panel">
+          <span class="tag">Student registration</span>
+          <h2>Student Signup</h2>
+          <p class="intro">Create your account and unlock the student-only placement dashboard.</p>
+
+          <form id="signupForm">
+            <div class="split-grid">
+              <div class="field-group">
+                <label for="su_username">Username</label>
+                <input type="text" id="su_username" placeholder="Choose a username" required />
+              </div>
+              <div class="field-group">
+                <label for="su_password">Password</label>
+                <input type="password" id="su_password" placeholder="Create a password" required />
+              </div>
+              <div class="field-group">
+                <label for="rollNumber">Roll Number</label>
+                <input type="text" id="rollNumber" placeholder="Enter roll number" required />
+              </div>
+              <div class="field-group">
+                <label for="branch">Branch</label>
+                <select id="branch" required></select>
+              </div>
+              <div class="field-group full-span" id="branchCustomField" style="display:none;">
+                <label for="customBranch">Custom Branch</label>
+                <input type="text" id="customBranch" placeholder="Enter your branch name" />
+              </div>
+              <div class="field-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" placeholder="First name" required />
+              </div>
+              <div class="field-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" placeholder="Last name" required />
+              </div>
+              <div class="field-group">
+                <label for="yearOfStudy">Year Of Study</label>
+                <select id="yearOfStudy" required></select>
+              </div>
+              <div class="field-group">
+                <label for="cgpa">CGPA</label>
+                <input type="number" step="0.01" id="cgpa" placeholder="CGPA" required />
+              </div>
+              <div class="field-group">
+                <label for="currentBacklogs">Current Backlogs</label>
+                <input type="number" id="currentBacklogs" min="0" placeholder="Current backlogs" required />
+              </div>
+              <div class="field-group">
+                <label for="pastBacklogs">Past Backlogs</label>
+                <input type="number" id="pastBacklogs" min="0" placeholder="Past backlogs" />
+              </div>
+              <div class="field-group full-span">
+                <label for="programmingLanguages">Programming Languages</label>
+                <div class="choice-grid" id="studentLanguageChoices"></div>
+              </div>
+              <div class="field-group full-span">
+                <label for="customStudentLanguages">Additional Languages (optional)</label>
+                <input type="text" id="customStudentLanguages" placeholder="e.g. Rust, Kotlin, Swift" />
+              </div>
+              <div class="field-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="name@example.com" required />
+              </div>
+              <div class="field-group">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" placeholder="Phone number" />
+              </div>
+            </div>
+
+            <div class="field-group full-span">
+              <label for="address">Address</label>
+              <textarea id="address" placeholder="Enter address"></textarea>
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="btn btn-primary">Create Student Account</button>
+              <a href="student-login.html" class="btn btn-secondary">Back</a>
+            </div>
+          </form>
+
+          <p id="error"></p>
+          <p class="alt-link">
+            Already have an account?
+            <a href="student-login.html">Login here</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

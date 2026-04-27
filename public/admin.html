@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body class="workspace-page">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand-copy">
+          <span class="tag">Admin</span>
+          <h2>Control Center</h2>
+          <p>Monitor users, review applications, and oversee the full placement ecosystem.</p>
+        </div>
+
+        <div class="nav-group">
+          <button onclick="loadAdminHome()">Overview</button>
+          <button onclick="loadUsers()">View Users</button>
+          <button onclick="loadApplications()">View Applications</button>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </aside>
+
+      <main class="content-shell glass-panel">
+        <section class="workspace-header">
+          <div>
+            <span class="tag">Admin workspace</span>
+            <h1>Placement platform oversight</h1>
+            <p>Admin access is fully separate from student and company accounts. Only valid admin credentials can keep this page open.</p>
+          </div>
+          <div class="workspace-actions">
+            <button class="btn btn-accent" onclick="loadUsers()">Open User Directory</button>
+            <button class="btn btn-secondary" onclick="loadApplications()">Review Applications</button>
+          </div>
+        </section>
+
+        <section class="filter-box" id="adminFilterBox" style="display: none;">
+          <div class="field-group">
+            <label for="adminUserType">Directory View</label>
+            <select id="adminUserType" onchange="loadUsers()">
+              <option value="all">Students and Companies</option>
+              <option value="students">Students Only</option>
+              <option value="companies">Companies Only</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="adminStudentBranchFilter">Student Branch</label>
+            <select id="adminStudentBranchFilter" onchange="loadUsers()"></select>
+          </div>
+          <div class="field-group">
+            <label for="adminStudentYearFilter">Student Year</label>
+            <select id="adminStudentYearFilter" onchange="loadUsers()"></select>
+          </div>
+          <div class="field-group">
+            <label for="adminCompanyBranchFilter">Company Eligible Branch</label>
+            <select id="adminCompanyBranchFilter" onchange="loadUsers()"></select>
+          </div>
+          <div class="field-group">
+            <label for="adminCompanyYearFilter">Company Eligible Year</label>
+            <select id="adminCompanyYearFilter" onchange="loadUsers()"></select>
+          </div>
+          <div class="field-group">
+            <label for="adminCompanyLanguageFilter">Company Required Language</label>
+            <select id="adminCompanyLanguageFilter" onchange="loadUsers()"></select>
+          </div>
+        </section>
+
+        <section class="metrics-grid">
+          <div class="metric-card">
+            <span>Access control</span>
+            <strong>Admin-only authenticated portal</strong>
+          </div>
+          <div class="metric-card">
+            <span>User visibility</span>
+            <strong>Students and companies in one view</strong>
+          </div>
+          <div class="metric-card">
+            <span>Pipeline review</span>
+            <strong>Application tracking across roles</strong>
+          </div>
+        </section>
+
+        <div id="output" class="data-panel">
+          <div class="empty-state">
+            The admin dashboard is active. Open the user directory or inspect applications.
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

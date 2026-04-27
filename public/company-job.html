@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Job Role</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body class="workspace-page">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand-copy">
+          <span class="tag">Company Route</span>
+          <h2>Role Management</h2>
+          <p>Define role boundaries, academic benchmarks, and needed programming skills.</p>
+        </div>
+
+        <div class="nav-group">
+          <a href="company.html" class="nav-link">Back to Dashboard</a>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </aside>
+
+      <main class="content-shell glass-panel">
+        <section class="workspace-header">
+          <div>
+            <span class="tag" id="modeTag">Create Job role</span>
+            <h1 id="modeTitle">Post a New Opportunity</h1>
+            <p>Establish exact criteria and location details to filter through your core demographic.</p>
+          </div>
+          <div class="workspace-actions">
+            <a href="company.html" class="btn btn-secondary">Return to Dashboard</a>
+          </div>
+        </section>
+
+        <form id="jobForm" class="page-form">
+          <section class="form-section">
+            <h3>Role details</h3>
+            <div class="split-grid">
+              <div class="field-group">
+                <label for="jobTitle">Job Title</label>
+                <input type="text" id="jobTitle" required />
+              </div>
+              <div class="field-group">
+                <label for="jobLocation">Job Location</label>
+                <input type="text" id="jobLocation" />
+              </div>
+              <div class="field-group full-span">
+                <label for="employmentType">Employment Type</label>
+                <input type="text" id="employmentType" placeholder="e.g. Full time, Internship, Contract..." />
+              </div>
+            </div>
+            <div class="field-group">
+              <label for="jobDescription">Job Description</label>
+              <textarea id="jobDescription"></textarea>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <h3>Eligibility filters</h3>
+            <div class="split-grid">
+              <div class="field-group">
+                <label for="minCgpa">Minimum CGPA Required</label>
+                <input type="number" id="minCgpa" step="0.01" min="0" max="10" required />
+              </div>
+              <div class="field-group">
+                <label for="maxBacklogs">Maximum Allowed Backlogs</label>
+                <input type="number" id="maxBacklogs" min="0" required />
+              </div>
+              <div class="field-group full-span">
+                <label>Target Branches</label>
+                <div class="choice-grid" id="eligibleBranchChoices"></div>
+              </div>
+              <div class="field-group full-span">
+                <label>Target Years</label>
+                <div class="choice-grid" id="eligibleYearChoices"></div>
+              </div>
+              <div class="field-group full-span">
+                <label>Required Languages</label>
+                <div class="choice-grid" id="requiredLanguageChoices"></div>
+              </div>
+            </div>
+          </section>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="saveJobBtn">Publish Job</button>
+            <a href="company.html" class="btn btn-secondary">Cancel</a>
+          </div>
+          <p id="error"></p>
+        </form>
+      </main>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>

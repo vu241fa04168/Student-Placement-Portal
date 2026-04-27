@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Student Profile</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body class="workspace-page">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand-copy">
+          <span class="tag">Student</span>
+          <h2>Edit Profile</h2>
+          <p>Refine your academic and skills profile to improve matching quality.</p>
+        </div>
+
+        <div class="nav-group">
+          <a href="student.html" class="nav-link">Back to Dashboard</a>
+          <button onclick="populateStudentEditForm()">Reload Current Data</button>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </aside>
+
+      <main class="content-shell glass-panel">
+        <section class="workspace-header">
+          <div>
+            <span class="tag">Student profile editor</span>
+            <h1>Keep your profile placement-ready</h1>
+            <p>Update skills, academics, and contact details so your dashboard stays accurate.</p>
+          </div>
+          <div class="workspace-actions">
+            <a href="student.html" class="btn btn-secondary">Return to Dashboard</a>
+          </div>
+        </section>
+
+        <form id="studentEditForm" class="page-form">
+          <section class="form-section">
+            <h3>Academic details</h3>
+            <div class="split-grid">
+              <div class="field-group">
+                <label for="editFirstName">First Name</label>
+                <input type="text" id="editFirstName" required />
+              </div>
+              <div class="field-group">
+                <label for="editLastName">Last Name</label>
+                <input type="text" id="editLastName" required />
+              </div>
+              <div class="field-group">
+                <label for="editBranch">Branch</label>
+                <select id="editBranch" required></select>
+              </div>
+              <div class="field-group full-span" id="editBranchCustomField" style="display:none;">
+                <label for="editCustomBranch">Custom Branch</label>
+                <input type="text" id="editCustomBranch" placeholder="Enter your branch name" />
+              </div>
+              <div class="field-group">
+                <label for="editYearOfStudy">Year Of Study</label>
+                <select id="editYearOfStudy" required></select>
+              </div>
+              <div class="field-group">
+                <label for="editCgpa">CGPA</label>
+                <input type="number" id="editCgpa" step="0.01" min="0" max="10" required />
+              </div>
+              <div class="field-group">
+                <label for="editCurrentBacklogs">Current Backlogs</label>
+                <input type="number" id="editCurrentBacklogs" min="0" required />
+              </div>
+              <div class="field-group">
+                <label for="editPastBacklogs">Past Backlogs</label>
+                <input type="number" id="editPastBacklogs" min="0" />
+              </div>
+              <div class="field-group full-span">
+                <label for="editProgrammingLanguages">Programming Languages</label>
+                <div class="choice-grid" id="editStudentLanguageChoices"></div>
+              </div>
+              <div class="field-group full-span">
+                <label for="editCustomStudentLanguages">Additional Languages (optional)</label>
+                <input type="text" id="editCustomStudentLanguages" placeholder="e.g. Rust, Kotlin, Swift" />
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <h3>Contact details</h3>
+            <div class="split-grid">
+              <div class="field-group">
+                <label for="editEmail">Email</label>
+                <input type="email" id="editEmail" />
+              </div>
+              <div class="field-group">
+                <label for="editPhone">Phone</label>
+                <input type="text" id="editPhone" />
+              </div>
+            </div>
+            <div class="field-group">
+              <label for="editAddress">Address</label>
+              <textarea id="editAddress"></textarea>
+            </div>
+          </section>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save Student Profile</button>
+            <a href="student.html" class="btn btn-secondary">Cancel</a>
+          </div>
+          <p id="error"></p>
+        </form>
+      </main>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

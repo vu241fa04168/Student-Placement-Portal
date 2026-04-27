@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reset Admin Password</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body class="auth-page">
+    <div class="page-shell auth-shell">
+      <section class="auth-story">
+        <span class="tag">Admin password reset</span>
+        <h1>Reset privileged access through the admin recovery key.</h1>
+        <p>
+          Provide the correct admin username and the admin reset key from your environment settings.
+        </p>
+      </section>
+
+      <div class="login-container">
+        <div class="login-panel">
+          <span class="tag">Recovery</span>
+          <h2>Reset Admin Password</h2>
+          <p class="intro">This flow requires the admin username and the `ADMIN_RESET_KEY` value.</p>
+
+          <form id="adminForgotForm">
+            <div class="field-group">
+              <label for="username">Admin Username</label>
+              <input type="text" id="username" required />
+            </div>
+            <div class="field-group">
+              <label for="resetKey">Admin Reset Key</label>
+              <input type="password" id="resetKey" required />
+            </div>
+            <div class="field-group">
+              <label for="newPassword">New Password</label>
+              <input type="password" id="newPassword" required />
+            </div>
+            <div class="actions">
+              <button type="submit" class="btn btn-accent">Reset Password</button>
+              <a href="admin-login.html" class="btn btn-secondary">Back to Login</a>
+            </div>
+          </form>
+
+          <p id="error"></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body class="workspace-page">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand-copy">
+          <span class="tag">Student</span>
+          <h2>Career Dashboard</h2>
+          <p>
+            Track your profile strength, explore matching jobs, and apply
+            professionally.
+          </p>
+        </div>
+
+        <div class="nav-group">
+          <button onclick="loadStudentHome()">Overview</button>
+          <button onclick="loadProfile()">View Profile</button>
+          <button onclick="loadEligibleJobs()">Eligible Jobs</button>
+          <a href="student-edit.html" class="nav-link">Edit Profile</a>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </aside>
+
+      <main class="content-shell glass-panel">
+        <section class="workspace-header">
+          <div>
+            <span class="tag">Student workspace</span>
+            <h1>Placement readiness at a glance</h1>
+            <p>
+              Use filters to discover matching jobs and keep your profile
+              updated for better eligibility.
+            </p>
+          </div>
+          <div class="workspace-actions">
+            <button class="btn btn-primary" onclick="loadEligibleJobs()">
+              Explore Jobs
+            </button>
+            <a href="student-edit.html" class="btn btn-secondary"
+              >Edit Profile</a
+            >
+          </div>
+        </section>
+
+        <section class="metrics-grid">
+          <div class="metric-card">
+            <span>Profile depth</span>
+            <strong>Academic + skills profile</strong>
+          </div>
+          <div class="metric-card">
+            <span>Matching</span>
+            <strong>Eligibility-aware job list</strong>
+          </div>
+          <div class="metric-card">
+            <span>Workflow</span>
+            <strong>Apply directly from dashboard</strong>
+          </div>
+        </section>
+
+        <section class="filter-box" id="studentFilterBox" style="display: none">
+          <div class="field-group">
+            <label for="filterCompanyName">Company Name</label>
+            <input
+              type="text"
+              id="filterCompanyName"
+              placeholder="Search company"
+            />
+          </div>
+          <div class="field-group">
+            <label for="filterJobTitle">Job Title</label>
+            <input type="text" id="filterJobTitle" placeholder="Search role" />
+          </div>
+          <div class="field-group">
+            <label for="filterLocation">Location</label>
+            <input type="text" id="filterLocation" placeholder="Location" />
+          </div>
+          <div class="field-group">
+            <label for="filterEmploymentType">Employment Type</label>
+            <input
+              type="text"
+              id="filterEmploymentType"
+              placeholder="Internship, Full-time..."
+            />
+          </div>
+          <div class="field-group">
+            <label for="filterCgpa">Max Min CGPA</label>
+            <input
+              type="number"
+              step="0.01"
+              id="filterCgpa"
+              placeholder="e.g. 8"
+            />
+          </div>
+          <div class="field-group">
+            <label for="filterBacklogs">Max Backlogs Allowed</label>
+            <input type="number" id="filterBacklogs" placeholder="e.g. 1" />
+          </div>
+          <div class="field-group">
+            <label for="filterLanguage">Required Language</label>
+            <select id="filterLanguage"></select>
+          </div>
+          <div class="field-group">
+            <label for="filterEligibleBranch">Eligible Branch</label>
+            <select id="filterEligibleBranch"></select>
+          </div>
+          <div class="field-group">
+            <label for="filterEligibleYear">Eligible Year</label>
+            <select id="filterEligibleYear"></select>
+          </div>
+          <div class="field-group">
+            <label for="sortOption">Sort</label>
+            <select id="sortOption">
+              <option value="">Choose sorting</option>
+              <option value="cgpa_asc">CGPA Low to High</option>
+              <option value="cgpa_desc">CGPA High to Low</option>
+              <option value="company_asc">Company A to Z</option>
+            </select>
+          </div>
+        </section>
+        <div
+          class="filter-actions"
+          id="studentFilterActions"
+          style="display: none"
+        >
+          <button class="btn btn-accent" onclick="loadEligibleJobs()">
+            Apply Filters
+          </button>
+        </div>
+
+        <div id="output" class="data-panel">
+          <div class="empty-state">
+            Your student dashboard is ready. Start by viewing your profile or
+            exploring eligible jobs.
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>
