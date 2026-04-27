@@ -274,6 +274,3 @@ Protected modules:
 - `/api/company/*`
 - `/api/admin/*`
 
-## License
-
-ISC
